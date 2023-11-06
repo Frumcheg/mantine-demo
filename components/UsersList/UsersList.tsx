@@ -3,8 +3,8 @@ import { api } from "@/api";
 import { Accordion } from "@mantine/core";
 import Image from "next/image";
 
-export function UsersList({ filter }: { filter: string }) {
-  const userQuery = useQuery({ queryKey: ["users"], queryFn: api.getUsers });
+export function UsersList({ filter, nationalities }: { filter: string; nationalities: string[] }) {
+  const userQuery = useQuery({ queryKey: ["users", nationalities.join()], queryFn: () => api.getUsers(nationalities) });
   if (userQuery.isLoading) return <div>Loading...</div>;
   if (userQuery.isError) return <div>Error</div>;
   return (
