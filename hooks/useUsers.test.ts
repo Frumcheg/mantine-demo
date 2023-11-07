@@ -29,7 +29,7 @@ describe('useUsers', () => {
     expect(result.current.total).toEqual(1);
   });
   it('two page of data', () => {
-    const users = Array.from({ length: 15 }, (i) => testUser);
+    const users = Array.from({ length: 15 }, () => testUser);
     const { result } = renderHook(() => useUsers(users, '', []));
     expect(result.current.currentPage).toEqual(users.slice(0, 10));
     expect(result.current.total).toEqual(2);

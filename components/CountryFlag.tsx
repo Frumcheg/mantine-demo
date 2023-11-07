@@ -1,6 +1,6 @@
-import { Code } from '@/components/NatSelector';
 import Image from 'next/image';
 import React from 'react';
+import { Code } from '@/components/NatSelector';
 
 const IMAGE_BASE = 'https://em-content.zobj.net/source/twitter/376';
 

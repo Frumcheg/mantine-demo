@@ -1,7 +1,7 @@
 import { Accordion, Center } from '@mantine/core';
-import { CountryFlag } from '@/components/CountryFlag';
 import Image from 'next/image';
 import React from 'react';
+import { CountryFlag } from '@/components/CountryFlag';
 import { User } from '@/api/api';
 
 export function UserViewItem({ user }: { user: User }) {

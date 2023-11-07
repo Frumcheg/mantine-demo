@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 import { User } from '@/api/api';
 
 const ITEM_PER_PAGE = 10;

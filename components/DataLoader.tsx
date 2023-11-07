@@ -1,8 +1,8 @@
-import { useUsersQuery } from '@/hooks/useUsersQuery';
+import React from 'react';
 import { Center, Loader } from '@mantine/core';
+import { useUsersQuery } from '@/hooks/useUsersQuery';
 import { Error } from '@/components/Error';
 import { UsersList } from '@/components/UsersList';
-import React from 'react';
 
 export function DataLoader({ nationalities, filter }: { nationalities: string[]; filter: string }) {
   const query = useUsersQuery(nationalities);
@@ -15,7 +15,7 @@ export function DataLoader({ nationalities, filter }: { nationalities: string[];
       )}
       {query.isError && (
         <Center h={100}>
-          <Error refetch={() => void query.refetch()} />
+          <Error refetch={() => query.refetch()} />
         </Center>
       )}
       {query.data && (
