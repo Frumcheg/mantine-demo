@@ -1,8 +1,8 @@
 import { Accordion, Center } from '@mantine/core';
-import { CountryFlag } from '@/components/CountryFlag/CountryFlag';
+import { CountryFlag } from '@/components/CountryFlag';
 import Image from 'next/image';
 import React from 'react';
-import { User } from '@/api';
+import { User } from '@/api/api';
 
 export function UserViewItem({ user }: { user: User }) {
   const full = `${user.name.title} ${user.name.first} ${user.name.last}`;

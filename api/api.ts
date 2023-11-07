@@ -1,4 +1,4 @@
-import { Code } from '@/components/NatSelector/NatSelector';
+import { Code } from '@/components/NatSelector';
 
 const apiBase = 'https://randomuser.me/api';
 
@@ -27,7 +27,7 @@ export interface Info {
 export const api = {
   getUsers: async (nationalities: string[]): Promise<{ results: User[]; info: Info }> => {
     const response = await fetch(
-      `${apiBase}/?inc=gender,name,nat,id,picture,login&results=500&seed=123${
+      `${apiBase}/?inc=name,nat,picture,login&results=500&seed=123${
         nationalities.length ? `&nat=${nationalities.join(',')}` : ''
       }`
     );

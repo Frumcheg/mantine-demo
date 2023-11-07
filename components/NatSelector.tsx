@@ -1,6 +1,6 @@
 import { MultiSelect } from '@mantine/core';
 
-const readonlyValues = [
+const codes = [
   'AU',
   'BR',
   'CA',
@@ -23,7 +23,7 @@ const readonlyValues = [
   'UA',
   'US',
 ] as const;
-const valueToLabel = {
+const codeToLabel = {
   AU: 'Australia',
   BR: 'Brazil',
   CA: 'Canada',
@@ -46,9 +46,9 @@ const valueToLabel = {
   UA: 'Ukraine',
   US: 'United States',
 };
-const data = readonlyValues.map((v) => ({ value: v, label: valueToLabel[v] }));
+const data = codes.map((v) => ({ value: v, label: codeToLabel[v] }));
 export function NatSelector({ onChange }: { onChange: (v: string[]) => void }) {
   return <MultiSelect placeholder="Pick a country" data={data} onChange={onChange} clearable />;
 }
 
-export type Code = (typeof readonlyValues)[number];
+export type Code = (typeof codes)[number];
