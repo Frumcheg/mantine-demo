@@ -1,6 +1,6 @@
-import React from "react";
-import { ClientApp } from "../components/ClientApp/ClientApp";
+import React from 'react';
+import { ClientApp } from '../components/ClientApp/ClientApp';
 
 export default function HomePage() {
-  return <ClientApp/>;
+  return <ClientApp />;
 }

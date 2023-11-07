@@ -19,6 +19,11 @@ export default withBundleAnalyzer({
         hostname: 'randomuser.me',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'em-content.zobj.net',
+        port: '',
+      },
     ],
   },
 });

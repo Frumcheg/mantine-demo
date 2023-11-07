@@ -1,23 +1,32 @@
-'use client'
+'use client';
 
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { UsersList } from "@/components/UsersList/UsersList";
-import { SearchInput } from "@/components/SearchInput/SearchInput";
-import { useState } from "react";
-import { NatSelector } from "@/components/NatSelector/NatSelector";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { UsersList } from '@/components/UsersList/UsersList';
+import { FilterInput } from '@/components/FilterInput/FilterInput';
+import React, { useState } from 'react';
+import { NatSelector } from '@/components/NatSelector/NatSelector';
+import { AppShell, Container, Space } from '@mantine/core';
 
-const queryClient = new QueryClient()
+export const queryClient = new QueryClient();
 
 export function ClientApp() {
-  const [filter, setFilter] = useState('')
-  const [nationalities, setNationalities] = useState<string[]>([])
+  const [filter, setFilter] = useState('');
+  const [nationalities, setNationalities] = useState<string[]>([]);
   return (
-    <QueryClientProvider client={queryClient}>
-      <SearchInput onChange={(v) => setFilter(v)}/>
-      <NatSelector onChange={setNationalities}/>
-      <UsersList filter={filter} nationalities={nationalities}/>
-      <ReactQueryDevtools/>
-    </QueryClientProvider>
-  )
+    <AppShell padding="md">
+      <AppShell.Main>
+        <QueryClientProvider client={queryClient}>
+          <Container>
+            <NatSelector onChange={setNationalities} />
+            <Space h="md" />
+            <FilterInput onChange={(v) => setFilter(v)} />
+            <Space h="md" />
+            <UsersList filter={filter} nationalities={nationalities} />
+          </Container>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </AppShell.Main>
+    </AppShell>
+  );
 }
